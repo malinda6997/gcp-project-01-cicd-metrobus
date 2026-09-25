@@ -441,7 +441,7 @@ export default function LMTGoPage() {
               mobile experience.
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            {/* <div className="mt-9 flex flex-col gap-3 sm:flex-row">
 
               <a
                 href="#download"
@@ -457,7 +457,7 @@ export default function LMTGoPage() {
                 Explore the App
               </a>
 
-            </div>
+            </div> */}
 
           </div>
 

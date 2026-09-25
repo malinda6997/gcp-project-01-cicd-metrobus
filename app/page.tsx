@@ -64,20 +64,58 @@ const features = [
   },
 ];
 
+const galleryImages = [
+  {
+    src: "/galary/Metro Bus Sri Lanka (2).jpg",
+    title: "MetroBus Network",
+    text: "Connecting passengers across the urban network.",
+  },
+  {
+    src: "/galary/Metro Bus Sri Lanka (4).jpg",
+    title: "City Services",
+    text: "Modern public transport for everyday journeys.",
+  },
+  {
+    src: "/galary/Metro Bus Sri Lanka (7).jpg",
+    title: "Accessible Travel",
+    text: "Designed around the needs of passengers.",
+  },
+  {
+    src: "/galary/Metro Bus Sri Lanka (8).jpg",
+    title: "Passenger Experience",
+    text: "A closer look inside the MetroBus experience.",
+  },
+  {
+    src: "/galary/Metro Bus Sri Lanka (9).jpg",
+    title: "Comfortable Travel",
+    text: "Spaces designed for everyday journeys.",
+  },
+  {
+    src: "/galary/Metro Bus Sri Lanka (10).jpg",
+    title: "Inside MetroBus",
+    text: "Travel comfortably across the network.",
+  },
+  {
+    src: "/galary/Metro Bus Sri Lanka (12).jpg",
+    title: "Driver Experience",
+    text: "A closer look at the MetroBus interior.",
+  },
+];
+
 export default function Home() {
   return (
-    <main className="bg-white">
+    <main className="bg-white text-[#111111]">
 
-      {/* =========================
+      {/* =====================================================
           HERO
-      ========================== */}
+      ====================================================== */}
 
       <Hero />
 
 
-      {/* =========================
+      {/* =====================================================
           JOURNEY SEARCH
-      ========================== */}
+      ====================================================== */}
 
       <section
         id="search"
@@ -143,9 +181,9 @@ export default function Home() {
       </section>
 
 
-      {/* =========================
+      {/* =====================================================
           NEXT BUS
-      ========================== */}
+      ====================================================== */}
 
       <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
 
@@ -254,9 +292,9 @@ export default function Home() {
       </section>
 
 
-      {/* =========================
+      {/* =====================================================
           WHY METROBUS
-      ========================== */}
+      ====================================================== */}
 
       <section className="bg-[#f7f7f5]">
 
@@ -309,9 +347,9 @@ export default function Home() {
       </section>
 
 
-      {/* =========================
+      {/* =====================================================
           POPULAR ROUTES
-      ========================== */}
+      ====================================================== */}
 
       <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
 
@@ -417,9 +455,323 @@ export default function Home() {
       </section>
 
 
-      {/* =========================
+      {/* =====================================================
+          METROBUS GALLERY
+      ====================================================== */}
+
+      <section className="bg-[#f7f7f5]">
+
+        <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+
+            <div>
+
+              <p className="text-xs font-bold tracking-[0.2em] text-[#d71920]">
+                METROBUS GALLERY
+              </p>
+
+              <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
+                See the network
+                <br />
+                in action.
+              </h2>
+
+            </div>
+
+            <p className="max-w-xl text-sm leading-7 text-gray-500">
+              Explore the MetroBus network, passenger spaces and
+              everyday moments from Sri Lanka&apos;s public
+              transport experience.
+            </p>
+
+          </div>
+
+
+          {/* Gallery */}
+
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            {galleryImages.map((image, index) => (
+
+              <div
+                key={image.src}
+                className={`group relative overflow-hidden rounded-2xl bg-gray-200 ${
+                  index === 0
+                    ? "sm:col-span-2 sm:row-span-2"
+                    : ""
+                }`}
+              >
+
+                <img
+                  src={image.src}
+                  alt={image.title}
+                  className={`w-full object-cover transition duration-700 group-hover:scale-105 ${
+                    index === 0
+                      ? "h-[420px] sm:h-full"
+                      : "h-[230px]"
+                  }`}
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+
+                  <p className="text-[10px] font-bold tracking-[0.18em] text-white/60">
+                    METROBUS
+                  </p>
+
+                  <h3 className="mt-1 text-lg font-bold text-white">
+                    {image.title}
+                  </h3>
+
+                  <p className="mt-1 max-w-xs text-xs leading-5 text-white/65">
+                    {image.text}
+                  </p>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          LMT-GO APP
+      ====================================================== */}
+
+      <section className="bg-[#090909] text-white">
+
+        <div className="relative mx-auto max-w-7xl overflow-hidden px-5 py-24 lg:px-8">
+
+          {/* Glow */}
+
+          <div className="absolute -right-40 top-20 h-[450px] w-[450px] rounded-full bg-[#d71920]/15 blur-[130px]" />
+
+          <div className="absolute -left-40 bottom-0 h-[350px] w-[350px] rounded-full bg-[#d71920]/10 blur-[120px]" />
+
+
+          <div className="relative grid items-center gap-16 lg:grid-cols-[0.75fr_1.25fr]">
+
+            {/* APP PREVIEW */}
+
+            <div className="flex justify-center">
+
+              <div className="relative">
+
+                <div className="absolute inset-0 scale-110 rounded-full bg-[#d71920]/20 blur-[70px]" />
+
+                <div className="relative h-[520px] w-[250px] overflow-hidden rounded-[38px] border-[7px] border-[#202020] bg-white shadow-[0_30px_100px_rgba(0,0,0,0.7)] sm:h-[570px] sm:w-[275px]">
+
+                  <img
+                    src="/ui-ss/LMT-GO1.jpg"
+                    alt="LMT-GO mobile application"
+                    className="h-full w-full object-cover"
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* CONTENT */}
+
+            <div>
+
+              <p className="text-xs font-bold tracking-[0.2em] text-[#ed1c24]">
+                LMT-GO DIGITAL TRANSPORT
+              </p>
+
+              <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+
+                Your journey.
+                <span className="block text-[#ed1c24]">
+                  Your way.
+                </span>
+
+              </h2>
+
+              <p className="mt-6 max-w-xl text-base leading-8 text-white/55">
+                LMT-GO brings schedules, live bus tracking,
+                digital payments, wallet services and travel
+                information together in one modern mobile
+                experience.
+              </p>
+
+
+              {/* App features */}
+
+              <div className="mt-10 grid gap-3 sm:grid-cols-2">
+
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+
+                  <p className="text-sm font-bold">
+                    Live Bus Tracking
+                  </p>
+
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Track buses and understand your journey.
+                  </p>
+
+                </div>
+
+
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+
+                  <p className="text-sm font-bold">
+                    Digital Payments
+                  </p>
+
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Manage digital payments and your travel wallet.
+                  </p>
+
+                </div>
+
+
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+
+                  <p className="text-sm font-bold">
+                    Travel History
+                  </p>
+
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Keep your previous journeys accessible.
+                  </p>
+
+                </div>
+
+
+                <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+
+                  <p className="text-sm font-bold">
+                    Digital Bus Pass
+                  </p>
+
+                  <p className="mt-2 text-xs leading-5 text-white/40">
+                    Keep your travel information in one place.
+                  </p>
+
+                </div>
+
+              </div>
+
+
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+
+                <Link
+                  href="/lmt-go"
+                  className="rounded-full bg-[#d71920] px-7 py-3.5 text-center text-sm font-bold transition hover:-translate-y-0.5 hover:bg-[#b51218]"
+                >
+                  Explore LMT-GO →
+                </Link>
+
+                <Link
+                  href="/lmt-go#download"
+                  className="rounded-full border border-white/15 px-7 py-3.5 text-center text-sm font-bold transition hover:bg-white hover:text-black"
+                >
+                  Get the App
+                </Link>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          GOOGLE MAP
+      ====================================================== */}
+
+      <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+
+        <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+
+          {/* LEFT */}
+
+          <div>
+
+            <p className="text-xs font-bold tracking-[0.2em] text-[#d71920]">
+              FIND METROBUS
+            </p>
+
+            <h2 className="mt-4 text-4xl font-bold leading-tight tracking-tight text-gray-900 sm:text-5xl">
+              Start your
+              <br />
+              journey here.
+            </h2>
+
+            <p className="mt-5 max-w-md text-sm leading-7 text-gray-500">
+              Find the MetroBus network and locate the
+              Makumbura Multimodal Transport Center, one of
+              the important transport hubs in the network.
+            </p>
+
+
+            <div className="mt-8 rounded-2xl border border-gray-200 bg-[#f7f7f5] p-6">
+
+              <p className="text-xs font-bold tracking-[0.15em] text-gray-400">
+                MAIN TRANSPORT HUB
+              </p>
+
+              <h3 className="mt-2 text-lg font-bold text-gray-900">
+                Makumbura Multimodal Transport Center
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-500">
+                Makumbura, Sri Lanka
+              </p>
+
+            </div>
+
+
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Makumbura+Multimodal+Transport+Center"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex rounded-full bg-[#111111] px-6 py-3.5 text-xs font-bold text-white transition hover:bg-[#d71920]"
+            >
+              Open in Google Maps →
+            </a>
+
+          </div>
+
+
+          {/* RIGHT MAP */}
+
+          <div className="overflow-hidden rounded-[2rem] border border-gray-200 bg-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.08)]">
+
+            <iframe
+              title="Makumbura Multimodal Transport Center"
+              src="https://www.google.com/maps?q=Makumbura+Multimodal+Transport+Center&output=embed"
+              className="h-[400px] w-full border-0 sm:h-[500px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
           FINAL CTA
-      ========================== */}
+      ====================================================== */}
 
       <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
 
@@ -430,29 +782,45 @@ export default function Home() {
           <div className="absolute -bottom-32 -left-20 h-64 w-64 rounded-full border-[40px] border-white/5" />
 
 
-          <div className="relative z-10 max-w-2xl">
+          <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
 
-            <p className="text-xs font-bold tracking-[0.2em] text-white/70">
-              YOUR JOURNEY STARTS HERE
-            </p>
+            <div>
 
-            <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
-              Find your next
-              <br />
-              destination.
-            </h2>
+              <p className="text-xs font-bold tracking-[0.2em] text-white/70">
+                YOUR JOURNEY STARTS HERE
+              </p>
 
-            <p className="mt-5 max-w-lg leading-7 text-white/80">
-              Explore MetroBus routes and discover a simpler
-              way to understand your everyday journey.
-            </p>
+              <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
+                Find your next
+                <br />
+                destination.
+              </h2>
 
-            <Link
-              href="/routes"
-              className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-bold text-[#d71920] transition hover:bg-gray-100"
-            >
-              Explore Routes →
-            </Link>
+              <p className="mt-5 max-w-lg leading-7 text-white/80">
+                Explore MetroBus routes and discover a simpler
+                way to understand your everyday journey.
+              </p>
+
+            </div>
+
+
+            <div className="flex flex-col gap-3">
+
+              <Link
+                href="/routes"
+                className="rounded-xl bg-white px-7 py-4 text-center text-sm font-bold text-[#d71920] transition hover:bg-gray-100"
+              >
+                Explore Routes →
+              </Link>
+
+              <Link
+                href="/contact"
+                className="rounded-xl border border-white/30 px-7 py-4 text-center text-sm font-bold transition hover:bg-white hover:text-[#111111]"
+              >
+                Contact MetroBus
+              </Link>
+
+            </div>
 
           </div>
 
