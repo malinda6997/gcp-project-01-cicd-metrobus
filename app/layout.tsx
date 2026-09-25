@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 export const metadata: Metadata = {
   title: "MetroBus Sri Lanka | Smarter Urban Mobility",
   description:
-    "MetroBus is a modern public transportation concept designed to make everyday journeys simpler, smarter and more connected.",
+    "A modern MetroBus transportation experience for Sri Lanka.",
 };
 
 export default function RootLayout({
@@ -18,7 +18,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <main>{children}</main>
+
+        {children}
+
         <Footer />
       </body>
     </html>

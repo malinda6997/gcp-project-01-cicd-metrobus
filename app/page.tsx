@@ -1,4 +1,26 @@
 import Link from "next/link";
+import Hero from "./components/Hero";
+
+const nextBuses = [
+  {
+    location: "Makulbura",
+    destination: "Kadawatha",
+    time: "13:00",
+    route: "MB01",
+  },
+  {
+    location: "Colombo Fort",
+    destination: "Maharagama",
+    time: "13:30",
+    route: "MB02",
+  },
+  {
+    location: "Kadawatha",
+    destination: "Makulbura",
+    time: "13:45",
+    route: "MB03",
+  },
+];
 
 const routes = [
   {
@@ -24,249 +46,43 @@ const routes = [
   },
 ];
 
+const features = [
+  {
+    number: "01",
+    title: "Clear routes",
+    text: "Understand your journey with simple route information and clear destinations.",
+  },
+  {
+    number: "02",
+    title: "Connected cities",
+    text: "Explore a transportation network designed around important urban destinations.",
+  },
+  {
+    number: "03",
+    title: "Better experience",
+    text: "A clean digital experience focused on the needs of everyday passengers.",
+  },
+];
+
 export default function Home() {
   return (
-    <div>
+    <main className="bg-white">
 
-      {/* =====================================================
+      {/* =========================
           HERO
-      ====================================================== */}
+      ========================== */}
 
-      <section className="relative overflow-hidden bg-[#101010] text-white">
+      <Hero />
 
-        {/* Background glow */}
 
-        <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#d71920]/20 blur-3xl" />
+      {/* =========================
+          JOURNEY SEARCH
+      ========================== */}
 
-        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#d71920]/10 blur-3xl" />
-
-
-        <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-14 px-5 py-20 lg:grid-cols-2 lg:px-8">
-
-          {/* LEFT SIDE */}
-
-          <div className="relative z-10">
-
-            <div className="mb-7 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2">
-
-              <span className="h-2 w-2 rounded-full bg-[#d71920]" />
-
-              <span className="text-xs font-semibold tracking-[0.15em] text-gray-300">
-                MODERN PUBLIC TRANSPORT
-              </span>
-
-            </div>
-
-
-            <h1 className="max-w-3xl text-5xl font-bold leading-[1.02] tracking-[-0.05em] sm:text-6xl lg:text-7xl">
-
-              Move through
-
-              <span className="block text-[#d71920]">
-                Sri Lanka smarter.
-              </span>
-
-            </h1>
-
-
-            <p className="mt-7 max-w-xl text-base leading-8 text-gray-400 sm:text-lg">
-
-              Discover routes, understand your journey and
-              connect with the places that matter. MetroBus
-              brings a simpler digital experience to everyday
-              public transportation.
-
-            </p>
-
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-
-              <Link
-                href="/routes"
-                className="rounded-full bg-[#d71920] px-7 py-3.5 text-center text-sm font-bold transition hover:bg-[#b51218]"
-              >
-                Explore Routes →
-              </Link>
-
-              <Link
-                href="#search"
-                className="rounded-full border border-white/20 px-7 py-3.5 text-center text-sm font-bold transition hover:bg-white hover:text-black"
-              >
-                Find Your Journey
-              </Link>
-
-            </div>
-
-
-            {/* Stats */}
-
-            <div className="mt-12 flex flex-wrap gap-8 border-t border-white/10 pt-7">
-
-              <div>
-                <p className="text-xl font-bold">15+</p>
-                <p className="mt-1 text-xs text-gray-500">
-                  Proposed routes
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xl font-bold">24/7</p>
-                <p className="mt-1 text-xs text-gray-500">
-                  Everyday mobility
-                </p>
-              </div>
-
-              <div>
-                <p className="text-xl font-bold">LK</p>
-                <p className="mt-1 text-xs text-gray-500">
-                  Sri Lankan network
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* RIGHT SIDE - BUS IMAGES */}
-
-          <div className="relative mx-auto w-full max-w-xl">
-
-            <div className="absolute -inset-8 rounded-[3rem] bg-[#d71920]/20 blur-3xl" />
-
-
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-3 shadow-2xl backdrop-blur">
-
-              {/* Main image */}
-
-              <div className="relative overflow-hidden rounded-[1.5rem]">
-
-                <img
-                  src="/img1.jpg"
-                  alt="MetroBus Sri Lanka"
-                  className="h-[330px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[390px]"
-                />
-
-
-                {/* Gradient */}
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-
-                {/* Image text */}
-
-                <div className="absolute bottom-5 left-5 right-5">
-
-                  <div className="flex items-end justify-between gap-4">
-
-                    <div>
-
-                      <p className="text-[10px] font-bold tracking-[0.2em] text-gray-300">
-                        METROBUS NETWORK
-                      </p>
-
-                      <h2 className="mt-1 text-xl font-bold">
-                        Moving the city forward.
-                      </h2>
-
-                    </div>
-
-                    <span className="rounded-full bg-[#d71920] px-3 py-1.5 text-[10px] font-bold">
-                      MB01
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* Second image */}
-
-              <div className="relative -mt-16 ml-auto w-[62%] overflow-hidden rounded-2xl border-4 border-[#101010] shadow-2xl">
-
-                <img
-                  src="/img2.jpg"
-                  alt="MetroBus fleet"
-                  className="h-40 w-full object-cover transition duration-700 hover:scale-105 sm:h-48"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-
-                <div className="absolute bottom-3 left-4">
-
-                  <p className="text-[9px] font-semibold tracking-wider text-white/70">
-                    CONNECTED JOURNEYS
-                  </p>
-
-                  <p className="mt-1 text-xs font-bold text-white">
-                    Colombo Urban Network
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              {/* Floating route card */}
-
-              <div className="absolute -left-4 top-16 hidden rounded-2xl border border-white/10 bg-[#151515]/95 p-4 shadow-xl backdrop-blur sm:block">
-
-                <div className="flex items-center gap-3">
-
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#d71920] text-xs font-bold">
-                    MB
-                  </div>
-
-                  <div>
-
-                    <p className="text-[9px] uppercase tracking-wider text-gray-500">
-                      Current route
-                    </p>
-
-                    <p className="mt-1 text-xs font-bold">
-                      Colombo → Negombo
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-
-              {/* Status card */}
-
-              <div className="absolute -right-3 bottom-20 hidden rounded-xl border border-white/10 bg-white px-4 py-3 shadow-xl sm:block">
-
-                <div className="flex items-center gap-2">
-
-                  <span className="h-2 w-2 rounded-full bg-green-500" />
-
-                  <span className="text-xs font-bold text-gray-800">
-                    Service planned
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* =====================================================
-          SEARCH
-      ====================================================== */}
-
-      <section id="search" className="relative z-10 -mt-8 px-5">
-
+      <section
+        id="search"
+        className="relative z-10 px-5 py-12 sm:py-16"
+      >
         <div className="mx-auto max-w-6xl rounded-2xl border border-gray-200 bg-white p-6 shadow-xl sm:p-8">
 
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end">
@@ -277,7 +93,7 @@ export default function Home() {
                 PLAN YOUR JOURNEY
               </p>
 
-              <h2 className="mt-2 text-xl font-bold">
+              <h2 className="mt-2 text-xl font-bold text-gray-900">
                 Find your route
               </h2>
 
@@ -324,15 +140,14 @@ export default function Home() {
           </div>
 
         </div>
-
       </section>
 
 
-      {/* =====================================================
+      {/* =========================
           NEXT BUS
-      ====================================================== */}
+      ========================== */}
 
-      <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
 
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
 
@@ -342,13 +157,13 @@ export default function Home() {
               LIVE CONCEPT
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">
               Next Bus
             </h2>
 
             <p className="mt-3 max-w-xl text-sm leading-7 text-gray-500">
-              Example departure information for selected
-              MetroBus connections.
+              Example departure information for selected MetroBus
+              connections.
             </p>
 
           </div>
@@ -365,26 +180,7 @@ export default function Home() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
 
-          {[
-            {
-              location: "Makulbura",
-              destination: "Kadawatha",
-              time: "13:00",
-              route: "MB01",
-            },
-            {
-              location: "Colombo Fort",
-              destination: "Maharagama",
-              time: "13:30",
-              route: "MB02",
-            },
-            {
-              location: "Kadawatha",
-              destination: "Makulbura",
-              time: "13:45",
-              route: "MB03",
-            },
-          ].map((bus) => (
+          {nextBuses.map((bus) => (
 
             <div
               key={bus.location}
@@ -399,7 +195,7 @@ export default function Home() {
                     NEXT DEPARTURE
                   </p>
 
-                  <p className="mt-1 font-bold">
+                  <p className="mt-1 font-bold text-gray-900">
                     {bus.location}
                   </p>
 
@@ -418,7 +214,7 @@ export default function Home() {
 
                   <div>
 
-                    <p className="text-3xl font-bold">
+                    <p className="text-3xl font-bold text-gray-900">
                       {bus.time}
                     </p>
 
@@ -441,7 +237,7 @@ export default function Home() {
                     Destination
                   </p>
 
-                  <p className="mt-1 text-sm font-semibold">
+                  <p className="mt-1 text-sm font-semibold text-gray-900">
                     {bus.destination}
                   </p>
 
@@ -458,13 +254,13 @@ export default function Home() {
       </section>
 
 
-      {/* =====================================================
+      {/* =========================
           WHY METROBUS
-      ====================================================== */}
+      ========================== */}
 
       <section className="bg-[#f7f7f5]">
 
-        <div className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
 
           <div className="max-w-2xl">
 
@@ -472,7 +268,7 @@ export default function Home() {
               WHY METROBUS
             </p>
 
-            <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
               Public transport,
               <br />
               made easier.
@@ -483,39 +279,23 @@ export default function Home() {
 
           <div className="mt-14 grid gap-5 md:grid-cols-3">
 
-            {[
-              {
-                number: "01",
-                title: "Clear routes",
-                text: "Understand your journey with simple route information and clear destinations.",
-              },
-              {
-                number: "02",
-                title: "Connected cities",
-                text: "Explore a network concept designed around important urban destinations.",
-              },
-              {
-                number: "03",
-                title: "Better experience",
-                text: "A clean digital experience focused on the needs of everyday passengers.",
-              },
-            ].map((item) => (
+            {features.map((feature) => (
 
               <div
-                key={item.number}
-                className="rounded-2xl border border-gray-200 bg-white p-7 transition hover:-translate-y-1 hover:border-[#d71920]"
+                key={feature.number}
+                className="rounded-2xl border border-gray-200 bg-white p-7 transition hover:-translate-y-1 hover:border-[#d71920] hover:shadow-md"
               >
 
                 <span className="text-xs font-bold text-[#d71920]">
-                  {item.number}
+                  {feature.number}
                 </span>
 
-                <h3 className="mt-12 text-xl font-bold">
-                  {item.title}
+                <h3 className="mt-12 text-xl font-bold text-gray-900">
+                  {feature.title}
                 </h3>
 
                 <p className="mt-4 text-sm leading-7 text-gray-500">
-                  {item.text}
+                  {feature.text}
                 </p>
 
               </div>
@@ -529,11 +309,11 @@ export default function Home() {
       </section>
 
 
-      {/* =====================================================
+      {/* =========================
           POPULAR ROUTES
-      ====================================================== */}
+      ========================== */}
 
-      <section className="mx-auto max-w-7xl px-5 py-24 lg:px-8">
+      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
 
         <div className="flex items-end justify-between">
 
@@ -543,7 +323,7 @@ export default function Home() {
               METROBUS NETWORK
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+            <h2 className="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">
               Popular connections
             </h2>
 
@@ -565,7 +345,7 @@ export default function Home() {
 
             <div
               key={route.code}
-              className="group overflow-hidden rounded-2xl border border-gray-200"
+              className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
             >
 
               <div className="h-2 bg-[#d71920]" />
@@ -591,7 +371,7 @@ export default function Home() {
                     From
                   </p>
 
-                  <p className="mt-1 text-xl font-bold">
+                  <p className="mt-1 text-xl font-bold text-gray-900">
                     {route.from}
                   </p>
 
@@ -603,7 +383,7 @@ export default function Home() {
                     To
                   </p>
 
-                  <p className="mt-1 text-xl font-bold">
+                  <p className="mt-1 text-xl font-bold text-gray-900">
                     {route.to}
                   </p>
 
@@ -623,7 +403,7 @@ export default function Home() {
                   href="/routes"
                   className="mt-6 block rounded-full border border-gray-200 py-2.5 text-center text-xs font-bold transition group-hover:border-[#d71920] group-hover:text-[#d71920]"
                 >
-                  View route
+                  View Route →
                 </Link>
 
               </div>
@@ -637,15 +417,18 @@ export default function Home() {
       </section>
 
 
-      {/* =====================================================
+      {/* =========================
           FINAL CTA
-      ====================================================== */}
+      ========================== */}
 
       <section className="mx-auto max-w-7xl px-5 pb-24 lg:px-8">
 
         <div className="relative overflow-hidden rounded-3xl bg-[#d71920] px-7 py-16 text-white sm:px-12 lg:px-16">
 
           <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full border-[50px] border-white/10" />
+
+          <div className="absolute -bottom-32 -left-20 h-64 w-64 rounded-full border-[40px] border-white/5" />
+
 
           <div className="relative z-10 max-w-2xl">
 
@@ -677,6 +460,6 @@ export default function Home() {
 
       </section>
 
-    </div>
+    </main>
   );
 }

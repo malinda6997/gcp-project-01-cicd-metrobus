@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
+/* =====================================================
+   BASE
+===================================================== */
+
 :root {
   --metro-red: #d71920;
   --metro-red-dark: #b51218;
-  --metro-dark: #101010;
-  --metro-gray: #686868;
-  --metro-light: #f6f6f4;
-  --metro-border: #e7e7e5;
+  --metro-black: #101010;
 }
 
 * {
@@ -19,6 +20,7 @@ html {
 
 body {
   margin: 0;
+  padding: 0;
   background: #ffffff;
   color: #111111;
   font-family: Arial, Helvetica, sans-serif;
@@ -28,12 +30,44 @@ a {
   text-decoration: none;
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
+
+/* =====================================================
+   METROBUS HERO ANIMATION
+===================================================== */
+
+.hero-background-image {
+  overflow: hidden;
 }
 
-::selection {
-  background: var(--metro-red);
-  color: white;
+.hero-image-active {
+  animation: metrobusZoom 6.5s ease-in-out forwards;
+}
+
+.hero-image-inactive {
+  transform: scale(1);
+}
+
+@keyframes metrobusZoom {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 640px) {
+  .hero-image-active {
+    animation-duration: 6.5s;
+  }
 }
