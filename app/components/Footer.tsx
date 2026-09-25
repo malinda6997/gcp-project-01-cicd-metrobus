@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-white">
+    <footer className="bg-[#0c1422] text-white">
 
-      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
 
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
 
           {/* Brand */}
 
@@ -15,14 +15,18 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="MetroBus"
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto"
             />
 
             <p className="mt-5 max-w-md text-sm leading-7 text-gray-400">
-              A modern public transportation concept designed
-              to make everyday journeys across Sri Lanka
-              simpler, smarter and more connected.
+              MetroBus is a modern public transportation concept
+              designed to make everyday travel simpler, clearer
+              and more connected across Sri Lanka.
             </p>
+
+            <div className="mt-5 inline-flex rounded-full border border-white/10 px-4 py-2 text-xs text-gray-500">
+              Concept transportation platform
+            </div>
 
           </div>
 
@@ -31,21 +35,21 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="text-sm font-semibold">
+            <h3 className="text-sm font-bold">
               Navigation
             </h3>
 
             <div className="mt-5 flex flex-col gap-3 text-sm text-gray-400">
 
-              <Link href="/" className="hover:text-white">
+              <Link href="/" className="transition hover:text-white">
                 Home
               </Link>
 
-              <Link href="/routes" className="hover:text-white">
+              <Link href="/routes" className="transition hover:text-white">
                 Routes & Services
               </Link>
 
-              <Link href="/about" className="hover:text-white">
+              <Link href="/about" className="transition hover:text-white">
                 About MetroBus
               </Link>
 
@@ -58,15 +62,16 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="text-sm font-semibold">
-              Information
+            <h3 className="text-sm font-bold">
+              Explore
             </h3>
 
-            <div className="mt-5 space-y-3 text-sm text-gray-400">
+            <div className="mt-5 flex flex-col gap-3 text-sm text-gray-400">
 
-              <p>Modern urban mobility</p>
-              <p>Connected communities</p>
-              <p>Smarter journeys</p>
+              <span>Route information</span>
+              <span>Timetable concepts</span>
+              <span>Travel information</span>
+              <span>MetroBus network</span>
 
             </div>
 
@@ -75,10 +80,10 @@ export default function Footer() {
         </div>
 
 
-        <div className="mt-14 border-t border-gray-800 pt-6">
+        <div className="mt-12 border-t border-white/10 pt-6">
 
           <p className="text-xs text-gray-500">
-            © 2026 MetroBus. Concept website. All rights reserved.
+            © 2026 MetroBus Sri Lanka. Concept website.
           </p>
 
         </div>

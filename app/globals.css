@@ -1,13 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --red: #d71920;
-  --red-dark: #b51218;
-  --black: #111111;
-  --dark: #1a1a1a;
-  --gray: #666666;
-  --light: #f7f7f7;
-  --border: #e8e8e8;
+  --metro-red: #d71920;
+  --metro-red-dark: #b51218;
+  --metro-dark: #101010;
+  --metro-gray: #686868;
+  --metro-light: #f6f6f4;
+  --metro-border: #e7e7e5;
 }
 
 * {
@@ -21,7 +20,7 @@ html {
 body {
   margin: 0;
   background: #ffffff;
-  color: var(--black);
+  color: #111111;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -29,7 +28,12 @@ a {
   text-decoration: none;
 }
 
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 ::selection {
-  background: var(--red);
+  background: var(--metro-red);
   color: white;
 }
