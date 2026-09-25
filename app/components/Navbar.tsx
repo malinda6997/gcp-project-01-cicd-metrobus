@@ -1,124 +1,117 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname();
 
-  const active = (path: string) => pathname === path;
+  const navItems = [
+    {
+      name: "Home",
+      href: "/",
+    },
+    {
+      name: "Routes",
+      href: "/routes",
+    },
+    {
+      name: "LMT-Go",
+      href: "/lmt-go",
+    },
+    {
+      name: "About",
+      href: "/about",
+    },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 bg-[#d71920] shadow-md">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#d71920]">
 
-      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
+      <nav className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
 
-        {/* Logo */}
+        {/* =================================================
+            LOGO
+        ================================================== */}
 
         <Link
           href="/"
-          onClick={() => setMenuOpen(false)}
-          className="flex items-center"
+          className="relative flex h-full items-center"
         >
-          <img
+          <Image
             src="/logo.png"
-            alt="MetroBus Sri Lanka"
-            className="h-11 w-auto object-contain"
+            alt="Sri Lanka Metro"
+            width={145}
+            height={55}
+            priority
+            className="h-auto w-[125px] object-contain sm:w-[140px]"
           />
         </Link>
 
 
-        {/* Desktop Navigation */}
+        {/* =================================================
+            DESKTOP NAVIGATION
+        ================================================== */}
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
 
-          <Link
-            href="/"
-            className={`relative py-2 text-sm font-semibold transition ${
-              active("/")
-                ? "text-white"
-                : "text-white/75 hover:text-white"
-            }`}
-          >
-            Home
+          {navItems.map((item) => (
 
-            {active("/") && (
-              <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-white" />
-            )}
-          </Link>
+            <Link
+              key={item.href}
+              href={item.href}
+              className="group relative text-sm font-semibold text-white/90 transition hover:text-white"
+            >
+              {item.name}
 
+              <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
+            </Link>
 
-          <Link
-            href="/routes"
-            className={`relative py-2 text-sm font-semibold transition ${
-              active("/routes")
-                ? "text-white"
-                : "text-white/75 hover:text-white"
-            }`}
-          >
-            Routes & Services
+          ))}
 
-            {active("/routes") && (
-              <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-white" />
-            )}
-          </Link>
+        </div>
 
 
-          <Link
-            href="/about"
-            className={`relative py-2 text-sm font-semibold transition ${
-              active("/about")
-                ? "text-white"
-                : "text-white/75 hover:text-white"
-            }`}
-          >
-            About
-
-            {active("/about") && (
-              <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-white" />
-            )}
-          </Link>
-
-        </nav>
-
-
-        {/* Desktop Button */}
+        {/* =================================================
+            DESKTOP CTA
+        ================================================== */}
 
         <Link
           href="/routes"
-          className="hidden rounded-full bg-white px-5 py-2.5 text-sm font-bold text-[#d71920] transition hover:bg-gray-100 md:block"
+          className="hidden rounded-full bg-white px-6 py-3 text-sm font-bold text-[#d71920] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-gray-100 md:block"
         >
           Find a Route
         </Link>
 
 
-        {/* Mobile Menu Button */}
+        {/* =================================================
+            MOBILE MENU BUTTON
+        ================================================== */}
 
         <button
           type="button"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Open navigation menu"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 text-white md:hidden"
+          aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/20 bg-white/10 md:hidden"
         >
-          <div className="flex flex-col gap-1.5">
+          <div className="space-y-1.5">
 
             <span
-              className={`h-0.5 w-5 bg-white transition ${
+              className={`block h-0.5 w-5 bg-white transition ${
                 menuOpen ? "translate-y-2 rotate-45" : ""
               }`}
             />
 
             <span
-              className={`h-0.5 w-5 bg-white transition ${
+              className={`block h-0.5 w-5 bg-white transition ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
 
             <span
-              className={`h-0.5 w-5 bg-white transition ${
+              className={`block h-0.5 w-5 bg-white transition ${
                 menuOpen ? "-translate-y-2 -rotate-45" : ""
               }`}
             />
@@ -126,63 +119,45 @@ export default function Navbar() {
           </div>
         </button>
 
-      </div>
+      </nav>
 
 
-      {/* Mobile Navigation */}
+      {/* =================================================
+          MOBILE NAVIGATION
+      ================================================== */}
 
       {menuOpen && (
-        <div className="border-t border-white/20 bg-[#d71920] px-5 pb-6 pt-4 md:hidden">
 
-          <nav className="flex flex-col gap-1">
+        <div className="border-t border-white/10 bg-[#c9151c] px-5 py-5 md:hidden">
 
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-semibold ${
-                active("/")
-                  ? "bg-white text-[#d71920]"
-                  : "text-white hover:bg-white/10"
-              }`}
-            >
-              Home
-            </Link>
+          <div className="mx-auto max-w-7xl space-y-1">
 
-            <Link
-              href="/routes"
-              onClick={() => setMenuOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-semibold ${
-                active("/routes")
-                  ? "bg-white text-[#d71920]"
-                  : "text-white hover:bg-white/10"
-              }`}
-            >
-              Routes & Services
-            </Link>
+            {navItems.map((item) => (
 
-            <Link
-              href="/about"
-              onClick={() => setMenuOpen(false)}
-              className={`rounded-lg px-4 py-3 text-sm font-semibold ${
-                active("/about")
-                  ? "bg-white text-[#d71920]"
-                  : "text-white hover:bg-white/10"
-              }`}
-            >
-              About
-            </Link>
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className="block rounded-xl px-4 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                {item.name}
+              </Link>
+
+            ))}
+
 
             <Link
               href="/routes"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 rounded-full bg-white px-5 py-3 text-center text-sm font-bold text-[#d71920]"
+              className="mt-3 block rounded-xl bg-white px-4 py-3 text-center text-sm font-bold text-[#d71920]"
             >
               Find a Route
             </Link>
 
-          </nav>
+          </div>
 
         </div>
+
       )}
 
     </header>
